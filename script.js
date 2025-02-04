@@ -3,7 +3,6 @@ const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
 const result = document.getElementById('result');
-const timerDisplay = document.getElementById('time');
 const retryButton = document.getElementById('retryButton');
 
 const videos = [
@@ -50,6 +49,7 @@ function selectRandomVideo() {
         circleTimer.style.animation = 'none';
     });
 
+    // Set the correct answer for the selected video
     options.forEach(option => {
         if (option.textContent === randomVideo.correctAnswer) {
             option.dataset.correct = 'true';
@@ -59,9 +59,8 @@ function selectRandomVideo() {
     });
 
     timeLeft = randomVideo.timer;
-    timerDisplay.textContent = timeLeft.toFixed(2);
     clearInterval(timer);
-    timer = setInterval(updateTimer, 10); 
+    timer = setInterval(updateTimer, 10);
 
     options.forEach(option => {
         const circleTimer = option.querySelector('.circle-timer');
@@ -69,9 +68,8 @@ function selectRandomVideo() {
     });
 }
 
-function updateTimer() {
+function updateTimer() { 
     timeLeft -= 0.01;
-    timerDisplay.textContent = timeLeft.toFixed(2);
 
     if (timeLeft <= 0) {
         clearInterval(timer);
@@ -111,4 +109,5 @@ options.forEach(option => {
 
 startButton.addEventListener('click', startQuiz);
 
+// Add event listener to the retry button
 retryButton.addEventListener('click', selectRandomVideo);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,10 @@
         <div id="quizSection" class="hidden">
             <div class="video-container">
                 <video id="videoPlayer"></video>
-                <button id="retryButton">Retry</button>
+                <div class="button-container">
+                    <button id="startButton">Start</button>
+                    <button id="retryButton">Retry</button>
+                </div>
             </div>
             <div id="options">
                 <button class="option">
@@ -53,7 +56,6 @@
             </div>
             <p id="result"></p>
         </div>
-        <button id="startButton">Start</button>
     </div>
     <script src="script.js"></script>
 </body>

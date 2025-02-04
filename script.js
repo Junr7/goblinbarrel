@@ -4,6 +4,7 @@ const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
 const result = document.getElementById('result');
 const timerDisplay = document.getElementById('time');
+const retryButton = document.getElementById('retryButton');
 
 const videos = [
     { src: 'videos/BottomLeft.mp4', correctAnswer: 'Bottom left', timer: 4.09 },
@@ -29,10 +30,14 @@ const videos = [
 let timer;
 let timeLeft;
 
-startButton.addEventListener('click', () => {
+function startQuiz() {
     startButton.classList.add('hidden');
     quizSection.classList.remove('hidden');
 
+    selectRandomVideo();
+}
+
+function selectRandomVideo() {
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
     videoPlayer.src = randomVideo.src;
     videoPlayer.play();
@@ -56,13 +61,13 @@ startButton.addEventListener('click', () => {
     timeLeft = randomVideo.timer;
     timerDisplay.textContent = timeLeft.toFixed(2);
     clearInterval(timer);
-    timer = setInterval(updateTimer, 10);
+    timer = setInterval(updateTimer, 10); 
 
     options.forEach(option => {
         const circleTimer = option.querySelector('.circle-timer');
         circleTimer.style.animation = `countdown ${timeLeft}s linear forwards`;
     });
-});
+}
 
 function updateTimer() {
     timeLeft -= 0.01;
@@ -86,10 +91,10 @@ options.forEach(option => {
         clearInterval(timer);
 
         if (option.dataset.correct === 'true') {
-            result.textContent = 'Correct';
+            result.textContent = 'Correct! 🎉';
             result.style.color = 'green';
         } else {
-            result.textContent = 'Incorrect';
+            result.textContent = 'Wrong! 😢';
             result.style.color = 'red';
         }
 
@@ -103,3 +108,7 @@ options.forEach(option => {
         });
     });
 });
+
+startButton.addEventListener('click', startQuiz);
+
+retryButton.addEventListener('click', selectRandomVideo);

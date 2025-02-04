@@ -1,4 +1,3 @@
-// Get DOM elements
 const startButton = document.getElementById('startButton');
 const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
@@ -42,6 +41,8 @@ startButton.addEventListener('click', () => {
     options.forEach(option => {
         option.disabled = false;
         option.classList.remove('correct', 'incorrect');
+        const circleTimer = option.querySelector('.circle-timer');
+        circleTimer.style.animation = 'none';
     });
 
     options.forEach(option => {
@@ -53,18 +54,23 @@ startButton.addEventListener('click', () => {
     });
 
     timeLeft = randomVideo.timer;
-    timerDisplay.textContent = timeLeft;
+    timerDisplay.textContent = timeLeft.toFixed(2);
     clearInterval(timer);
-    timer = setInterval(updateTimer, 1000);
+    timer = setInterval(updateTimer, 10);
+
+    options.forEach(option => {
+        const circleTimer = option.querySelector('.circle-timer');
+        circleTimer.style.animation = `countdown ${timeLeft}s linear forwards`;
+    });
 });
 
 function updateTimer() {
-    timeLeft--;
-    timerDisplay.textContent = timeLeft;
+    timeLeft -= 0.01;
+    timerDisplay.textContent = timeLeft.toFixed(2);
 
     if (timeLeft <= 0) {
         clearInterval(timer);
-        result.textContent = 'Too late';
+        result.textContent = 'Time’s up! 😢';
         result.style.color = 'red';
         options.forEach(option => {
             option.disabled = true;

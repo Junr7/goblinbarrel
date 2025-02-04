@@ -31,6 +31,7 @@ let timeLeft;
 
 function startQuiz() {
     startButton.classList.add('hidden');
+
     quizSection.classList.remove('hidden');
 
     selectRandomVideo();
@@ -49,9 +50,8 @@ function selectRandomVideo() {
         circleTimer.style.animation = 'none';
     });
 
-    // Set the correct answer for the selected video
     options.forEach(option => {
-        if (option.textContent === randomVideo.correctAnswer) {
+        if (option.textContent.trim() === randomVideo.correctAnswer.trim()) {
             option.dataset.correct = 'true';
         } else {
             option.dataset.correct = 'false';
@@ -68,7 +68,7 @@ function selectRandomVideo() {
     });
 }
 
-function updateTimer() { 
+function updateTimer() {
     timeLeft -= 0.01;
 
     if (timeLeft <= 0) {
@@ -84,10 +84,13 @@ function updateTimer() {
     }
 }
 
+// Add event listeners to the answer options
 options.forEach(option => {
     option.addEventListener('click', () => {
+        // Stop the timer
         clearInterval(timer);
 
+        // Check if the selected option is correct
         if (option.dataset.correct === 'true') {
             result.textContent = 'Correct';
             result.style.color = 'green';
@@ -96,6 +99,7 @@ options.forEach(option => {
             result.style.color = 'red';
         }
 
+        // Highlight the correct and incorrect options
         options.forEach(opt => {
             if (opt.dataset.correct === 'true') {
                 opt.classList.add('correct');
@@ -107,6 +111,7 @@ options.forEach(option => {
     });
 });
 
+// Add event listener to the start button
 startButton.addEventListener('click', startQuiz);
 
 // Add event listener to the retry button

@@ -75,7 +75,7 @@ function updateTimer() {
 
     if (timeLeft <= 0) {
         clearInterval(timer);
-        result.textContent = 'Time’s up! 😢';
+        result.textContent = 'Too late';
         result.style.color = 'red';
         options.forEach(option => {
             option.disabled = true;
@@ -91,10 +91,10 @@ options.forEach(option => {
         clearInterval(timer);
 
         if (option.dataset.correct === 'true') {
-            result.textContent = 'Correct! 🎉';
+            result.textContent = 'Correct';
             result.style.color = 'green';
         } else {
-            result.textContent = 'Wrong! 😢';
+            result.textContent = 'Incorrect';
             result.style.color = 'red';
         }
 

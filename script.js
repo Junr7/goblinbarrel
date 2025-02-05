@@ -44,7 +44,7 @@ function selectRandomVideo() {
         option.disabled = false;
         option.classList.remove('correct', 'incorrect');
         const circleTimer = option.querySelector('.circle-timer');
-        circleTimer.style.animation = 'none';
+        circleTimer.style.animation = 'none'; // Reset animation
     });
 
     options.forEach(option => {
@@ -66,7 +66,7 @@ function selectRandomVideo() {
 }
 
 function updateTimer() {
-    timeLeft -= 0.01; 
+    timeLeft -= 0.01;
 
     if (timeLeft <= 0) {
         clearInterval(timer);

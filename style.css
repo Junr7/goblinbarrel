@@ -17,8 +17,8 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: #444; 
-    color: white; 
+    background-color: #444;
+    color: white;
 }
 
 #quizSection {
@@ -31,38 +31,42 @@ body {
 
 .video-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 70vh; 
     margin-bottom: 10px;
-    position: relative;
 }
 
 #videoPlayer {
     width: 80%;
-    height: 100%;
-    object-fit: cover; 
-    object-position: top;
+    max-height: 60vh;
+    object-fit: contain;
 }
 
-#playButton {
-    padding: 20px 40px;
-    font-size: 24px;
+.button-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+#startButton,
+#retryButton {
+    padding: 15px 30px;
+    font-size: 20px;
     cursor: pointer;
-    background-color: #555; 
+    background-color: #555;
     color: white;
     border: none;
     border-radius: 5px;
-    margin-left: 20px; 
 }
 
 #options {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    height: 30vh; 
-    gap: 0; 
+    height: 40vh;
+    gap: 0;
     padding: 0;
     margin: 0;
 }
@@ -72,8 +76,8 @@ body {
     padding: 0;
     margin: 0;
     border: 1px solid #666;
-    background-color: #555; 
-    color: white; 
+    background-color: #555;
+    color: white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -81,12 +85,12 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-    height: 100%; 
+    height: 120px;
 }
 
 .option span {
     position: relative;
-    z-index: 2; 
+    z-index: 2;
 }
 
 .circle-timer {
@@ -100,7 +104,7 @@ body {
     z-index: 1;
     transform: rotate(-90deg);
     animation: none;
-    clip-path: circle(50% at center); 
+    clip-path: circle(50% at center);
 }
 
 @keyframes countdown {
@@ -110,14 +114,9 @@ body {
 }
 
 #result {
-    font-size: 40px; 
+    font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
-    position: absolute;
-    left: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
 }
 
 .correct {

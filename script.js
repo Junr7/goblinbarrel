@@ -1,9 +1,8 @@
-const startButton = document.getElementById('startButton');
+const playButton = document.getElementById('playButton');
 const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
 const result = document.getElementById('result');
-const retryButton = document.getElementById('retryButton');
 
 const videos = [
     { src: 'videos/BottomLeft.mp4', correctAnswer: 'Bottom left', timer: 4.09 },
@@ -30,8 +29,6 @@ let timer;
 let timeLeft;
 
 function startQuiz() {
-    startButton.classList.add('hidden');
-
     quizSection.classList.remove('hidden');
 
     selectRandomVideo();
@@ -47,7 +44,7 @@ function selectRandomVideo() {
         option.disabled = false;
         option.classList.remove('correct', 'incorrect');
         const circleTimer = option.querySelector('.circle-timer');
-        circleTimer.style.animation = 'none';
+        circleTimer.style.animation = 'none'; // Reset animation
     });
 
     options.forEach(option => {
@@ -84,13 +81,10 @@ function updateTimer() {
     }
 }
 
-// Add event listeners to the answer options
 options.forEach(option => {
     option.addEventListener('click', () => {
-        // Stop the timer
         clearInterval(timer);
 
-        // Check if the selected option is correct
         if (option.dataset.correct === 'true') {
             result.textContent = 'Correct';
             result.style.color = 'green';
@@ -99,7 +93,6 @@ options.forEach(option => {
             result.style.color = 'red';
         }
 
-        // Highlight the correct and incorrect options
         options.forEach(opt => {
             if (opt.dataset.correct === 'true') {
                 opt.classList.add('correct');
@@ -111,8 +104,4 @@ options.forEach(option => {
     });
 });
 
-// Add event listener to the start button
-startButton.addEventListener('click', startQuiz);
-
-// Add event listener to the retry button
-retryButton.addEventListener('click', selectRandomVideo);
+playButton.addEventListener('click', startQuiz);

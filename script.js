@@ -1,8 +1,9 @@
-const playButton = document.getElementById('playButton');
+const startButton = document.getElementById('startButton');
 const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
 const result = document.getElementById('result');
+const retryButton = document.getElementById('retryButton');
 
 const videos = [
     { src: 'videos/BottomLeft.mp4', correctAnswer: 'Bottom left', timer: 4.09 },
@@ -29,6 +30,8 @@ let timer;
 let timeLeft;
 
 function startQuiz() {
+    startButton.classList.add('hidden');
+
     quizSection.classList.remove('hidden');
 
     selectRandomVideo();
@@ -44,7 +47,7 @@ function selectRandomVideo() {
         option.disabled = false;
         option.classList.remove('correct', 'incorrect');
         const circleTimer = option.querySelector('.circle-timer');
-        circleTimer.style.animation = 'none'; // Reset animation
+        circleTimer.style.animation = 'none';
     });
 
     options.forEach(option => {
@@ -104,4 +107,6 @@ options.forEach(option => {
     });
 });
 
-playButton.addEventListener('click', startQuiz);
+startButton.addEventListener('click', startQuiz);
+
+retryButton.addEventListener('click', selectRandomVideo);

@@ -1,4 +1,3 @@
-const startButton = document.getElementById('startButton');
 const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
@@ -29,8 +28,8 @@ const videos = [
 let timer;
 let timeLeft;
 
-function startQuiz() {
-    startButton.classList.add('hidden');
+function playQuiz() {
+    playButton.classList.add('hidden');
 
     quizSection.classList.remove('hidden');
 
@@ -107,6 +106,6 @@ options.forEach(option => {
     });
 });
 
-startButton.addEventListener('click', startQuiz);
+playButton.addEventListener('click', playQuiz);
 
 playButton.addEventListener('click', selectRandomVideo);

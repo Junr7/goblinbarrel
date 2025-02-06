@@ -1,8 +1,9 @@
+const startButton = document.getElementById('startButton');
 const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
 const result = document.getElementById('result');
-const playButton = document.getElementById('playButton');
+const retryButton = document.getElementById('retryButton');
 
 const videos = [
     { src: 'videos/BottomLeft.mp4', correctAnswer: 'Bottom left', timer: 4.09 },
@@ -28,8 +29,8 @@ const videos = [
 let timer;
 let timeLeft;
 
-function playQuiz() {
-    playButton.classList.add('hidden');
+function startQuiz() {
+    startButton.classList.add('hidden');
 
     quizSection.classList.remove('hidden');
 
@@ -106,6 +107,6 @@ options.forEach(option => {
     });
 });
 
-playButton.addEventListener('click', playQuiz);
+startButton.addEventListener('click', startQuiz);
 
-playButton.addEventListener('click', selectRandomVideo);
+retryButton.addEventListener('click', selectRandomVideo);

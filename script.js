@@ -3,7 +3,7 @@ const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
 const result = document.getElementById('result');
-const retryButton = document.getElementById('retryButton');
+const playButton = document.getElementById('playButton');
 
 const videos = [
     { src: 'videos/BottomLeft.mp4', correctAnswer: 'Bottom left', timer: 4.09 },
@@ -109,4 +109,4 @@ options.forEach(option => {
 
 startButton.addEventListener('click', startQuiz);
 
-retryButton.addEventListener('click', selectRandomVideo);
+playButton.addEventListener('click', selectRandomVideo);

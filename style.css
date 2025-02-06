@@ -1,4 +1,4 @@
-﻿body {
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .video-container {
@@ -47,31 +47,31 @@
 }
 
 #startButton {
-    padding: 20px 40px; 
-    font-size: 24px; 
+    padding: 20px 40px;
+    font-size: 24px;
     cursor: pointer;
     background-color: #555;
     color: white;
     border: none;
     border-radius: 5px;
-    position: absolute; 
-    right: 20px; 
+    position: absolute;
+    right: 20px;
     top: 20px;
 }
 
 #options {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
     width: 90%;
-    height: auto; 
+    height: auto;
     gap: 10px;
     padding: 10px;
     margin: 0;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
 .option {
-    font-size: 16px; 
+    font-size: 16px;
     padding: 10px;
     margin: 0;
     border: 1px solid #666;
@@ -88,10 +88,10 @@
     box-sizing: border-box;
 }
 
-    .option span {
-        position: relative;
-        z-index: 2;
-    }
+.option span {
+    position: relative;
+    z-index: 2;
+}
 
 #result {
     font-size: 20px;
@@ -100,11 +100,11 @@
 }
 
 .correct {
-    background-color: #4CAF50 !important; 
+    background-color: #4CAF50 !important;
     color: white !important;
 }
 
 .incorrect {
-    background-color: #f44336 !important; 
+    background-color: #f44336 !important;
     color: white !important;
 }

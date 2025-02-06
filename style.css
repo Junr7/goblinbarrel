@@ -50,8 +50,7 @@ body {
     margin-top: 10px;
 }
 
-#startButton,
-#retryButton {
+#playButton {
     padding: 15px 30px;
     font-size: 20px;
     cursor: pointer;

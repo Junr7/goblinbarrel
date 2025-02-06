@@ -3,7 +3,6 @@ const quizSection = document.getElementById('quizSection');
 const videoPlayer = document.getElementById('videoPlayer');
 const options = document.querySelectorAll('.option');
 const result = document.getElementById('result');
-const retryButton = document.getElementById('retryButton');
 
 const videos = [
     { src: 'videos/BottomLeft.mp4', correctAnswer: 'Bottom left', timer: 4.09 },
@@ -30,8 +29,6 @@ let timer;
 let timeLeft;
 
 function startQuiz() {
-    startButton.classList.add('hidden');
-
     quizSection.classList.remove('hidden');
 
     selectRandomVideo();
@@ -40,14 +37,12 @@ function startQuiz() {
 function selectRandomVideo() {
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
     videoPlayer.src = randomVideo.src;
-    videoPlayer.play();
+    videoPlayer.play(); 
 
     result.textContent = '';
     options.forEach(option => {
         option.disabled = false;
-        option.classList.remove('correct', 'incorrect');
-        const circleTimer = option.querySelector('.circle-timer');
-        circleTimer.style.animation = 'none';
+        option.classList.remove('correct', 'incorrect'); 
     });
 
     options.forEach(option => {
@@ -61,11 +56,6 @@ function selectRandomVideo() {
     timeLeft = randomVideo.timer;
     clearInterval(timer);
     timer = setInterval(updateTimer, 10);
-
-    options.forEach(option => {
-        const circleTimer = option.querySelector('.circle-timer');
-        circleTimer.style.animation = `countdown ${timeLeft}s linear forwards`;
-    });
 }
 
 function updateTimer() {
@@ -108,5 +98,3 @@ options.forEach(option => {
 });
 
 startButton.addEventListener('click', startQuiz);
-
-retryButton.addEventListener('click', selectRandomVideo);

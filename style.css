@@ -7,6 +7,7 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #333;
+    position: relative; /* Ensure absolute positioning works */
 }
 
 .container {
@@ -44,21 +45,17 @@ body {
     object-fit: contain;
 }
 
-.button-container {
-    display: flex;
-    gap: 20px;
-    margin-top: 10px;
-}
-
-#startButton,
-#retryButton {
-    padding: 15px 30px;
-    font-size: 20px;
+#startButton {
+    padding: 20px 40px; /* Bigger padding */
+    font-size: 24px;
     cursor: pointer;
     background-color: #555;
     color: white;
     border: none;
     border-radius: 5px;
+    position: absolute; /* Position the button absolutely */
+    right: 20px; /* Distance from right edge */
+    top: 20px; /* Distance from top edge */
 }
 
 #options {

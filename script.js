@@ -30,19 +30,18 @@ let timeLeft;
 
 function startQuiz() {
     quizSection.classList.remove('hidden');
-
     selectRandomVideo();
 }
 
 function selectRandomVideo() {
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
     videoPlayer.src = randomVideo.src;
-    videoPlayer.play(); 
+    videoPlayer.play();
 
     result.textContent = '';
     options.forEach(option => {
         option.disabled = false;
-        option.classList.remove('correct', 'incorrect'); 
+        option.classList.remove('correct', 'incorrect');
     });
 
     options.forEach(option => {

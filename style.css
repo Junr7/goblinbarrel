@@ -99,7 +99,7 @@ body {
     font-size: 100px;
     font-weight: bold;
     position: absolute;
-    left: 50%;
+    left: 10%;
     top: 20%;
     transform: translateY(-50%);
     color: white; 

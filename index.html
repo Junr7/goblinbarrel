@@ -10,10 +10,10 @@
     <div class="container">
         <div id="quizSection" class="hidden">
             <div class="video-container">
-                <video id="videoPlayer"></video>
+                <video id="videoPlayer" preload="metadata"></video>
+                <div id="result"></div>
                 <div class="button-container">
                     <button id="startButton">Play</button>
-                    <button id="retryButton" style="display: none;">Retry</button>
                 </div>
             </div>
             <div id="options">
@@ -45,7 +45,6 @@
                     <span>Bottom right</span>
                 </button>
             </div>
-            <p id="result"></p>
         </div>
     </div>
     <script src="script.js"></script>

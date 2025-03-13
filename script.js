@@ -36,7 +36,13 @@ function startQuiz() {
 function selectRandomVideo() {
     const randomVideo = videos[Math.floor(Math.random() * videos.length)];
     videoPlayer.src = randomVideo.src;
-    videoPlayer.play();
+    
+    videoPlayer.load();
+    videoPlayer.addEventListener('loadeddata', () => {
+        videoPlayer.play().catch(error => {
+            console.log('Playback prevented:', error);
+        });
+    });
 
     result.textContent = '';
     options.forEach(option => {

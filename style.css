@@ -36,14 +36,16 @@ body {
 .video-container {
     position: relative;
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     margin: 0;
+    overflow: hidden;
 }
 
 #videoPlayer {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: 110%;
+    object-fit: cover;
+    object-position: center top;
 }
 
 #startButton {
@@ -63,119 +65,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
-    height: calc(45vh - 20px);
-    gap: 0;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    grid-auto-rows: minmax(70px, 1fr);
-}
-
-.option {
-    font-size: 14px;
-    padding: 10px;
-    margin: 0;
-    border: 1px solid #666;
-    background-color: #555;
-    color: white;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    height: 100%;
-    min-height: 70px;
-}
-
-#result {
-    font-size: 40px;
-    font-weight: bold;
-    position: absolute;
-    left: 5%;
-    top: 40%;
-    color: white;
-    z-index: 10;
-    width: 15%;
-    text-align: center;
-}
-
-.correct {
-    background-color: #4CAF50 !important;
-    color: white !important;
-}
-
-.incorrect {
-    background-color: #f44336 !important;
-    color: white !important;
-}body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #333;
-    position: relative;
-    overflow: hidden;
-}
-
-.container {
-    text-align: center;
-    width: 100%;
-    height: calc(100vh - 40px);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #444;
-    color: white;
-    padding: 20px;
-}
-
-#quizSection {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 55vh;
-    margin: 0;
-}
-
-#videoPlayer {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-#startButton {
-    padding: 15px 30px;
-    font-size: 18px;
-    cursor: pointer;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    position: fixed;
-    right: 20px;
-    top: 20px;
-}
-
-#options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    height: calc(45vh - 20px);
+    height: calc(40vh - 20px);
     gap: 0;
     padding: 0;
     margin: 0;
